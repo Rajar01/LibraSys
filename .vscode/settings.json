@@ -1,0 +1,9 @@
+{
+    "maven.terminal.favorites": [
+        {
+            "command": "exec:java",
+            "debug": false
+        }
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
+}
