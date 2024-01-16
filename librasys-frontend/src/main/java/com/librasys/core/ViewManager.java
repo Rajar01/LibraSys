@@ -2,41 +2,41 @@ package com.librasys.core;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import com.librasys.controllers.BaseController;
 import com.librasys.views.BaseView;
 
-public class ViewManager {
-    private static ViewManager viewManager;
+public enum ViewManager {
+    INSTANCE;
+
+    private JFrame frame;
     private Map<String, BaseView> views;
 
-    public ViewManager() {
+    ViewManager() {
         views = new HashMap<>();
-    }
-
-    public static ViewManager getViewManager() {
-        if (viewManager == null) {
-            viewManager = new ViewManager();
-            return viewManager;
-        } else {
-            return viewManager;
-        }
     }
 
     public void addView(String viewName, BaseView view) {
         views.put(viewName, view);
     }
 
-    public void switchView(String oldViewName, String newViewName) {
-        if (views.get(newViewName) == null) {
-            Logger.getLogger(ViewManager.class.getName()).log(Level.SEVERE, "View not found");
-            System.exit(1);
-        } else {
-            BaseView oldView = views.get(oldViewName);
-            BaseView newView = views.get(newViewName);
-            oldView.dispose();
-            newView.initView();
-        }
+    public void setCurrentView(JPanel view, BaseController controller) {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(view);
+        frame.revalidate();
+        frame.repaint();
+
+        controller.initController();
+    }
+
+    public BaseView getView(String viewName) {
+        return views.get(viewName);
+    }
+
+    public void setFrame(JFrame frame) {
+        this.frame = frame;
     }
 }
