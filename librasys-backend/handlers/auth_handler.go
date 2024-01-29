@@ -22,7 +22,7 @@ func (h *AuthHandler) Login(c *gin.Context) {
         return
     }
 
-    user, err := h.AuthService.AuthenticateUser(loginRequest.Username, loginRequest.Password)
+    user, err := h.AuthService.Login(loginRequest.Username, loginRequest.Password)
     if err != nil {
         c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error"})
         return

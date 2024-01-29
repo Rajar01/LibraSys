@@ -43,6 +43,9 @@ public class Main {
         FontManager.INSTANCE.addFont("SpaceMono-Regular.ttf");
         FontManager.INSTANCE.addFont("Roboto-Medium.ttf");
         FontManager.INSTANCE.addFont("Roboto-Regular.ttf");
+        FontManager.INSTANCE.addFont("Roboto-Black.ttf");
+        FontManager.INSTANCE.addFont("Roboto-Thin.ttf");
+        FontManager.INSTANCE.addFont("PassionOne-Regular.ttf");
 
         // Models
         // !Add Models Here

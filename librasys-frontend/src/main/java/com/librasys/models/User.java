@@ -1,11 +1,32 @@
 package com.librasys.models;
 
+import com.google.gson.annotations.SerializedName;
 import com.librasys.enums.UserRole;
 
 public class User {
-    private String username, password, email;
-    private String name, address, phoneNumber;
+    private String password;
     private UserRole role;
+
+    @SerializedName("ID")
+    private long id;
+
+    @SerializedName("Username")
+    private String username;
+
+    @SerializedName("Email")
+    private String email;
+
+    @SerializedName("Name")
+    private String name;
+
+    @SerializedName("Address")
+    private String address;
+
+    @SerializedName("PhoneNumber")
+    private String phoneNumber;
+
+    @SerializedName("RoleID")
+    private long roleId;
 
     public User() {
 
@@ -25,6 +46,14 @@ public class User {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.role = role;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -81,5 +110,13 @@ public class User {
 
     public void setRole(UserRole userRole) {
         this.role = userRole;
+    }
+
+    public long getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(long roleId) {
+        this.roleId = roleId;
     }
 }

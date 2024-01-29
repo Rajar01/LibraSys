@@ -36,6 +36,10 @@ public enum ViewManager {
         return views.get(viewName);
     }
 
+    public JFrame getFrame() {
+        return frame;
+    }
+
     public void setFrame(JFrame frame) {
         this.frame = frame;
     }
